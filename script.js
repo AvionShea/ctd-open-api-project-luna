@@ -35,3 +35,41 @@ async function peopleInSpace() {
 peopleInSpace();
 
 //Moon Phases - coming soon
+// DATE AND TIME
+const timestamp = Math.floor(Date.now() / 1000);
+const currentDate = new Date().toJSON().slice(0, 10);
+const midpointOfEastCoastCoords = "36.5,-76.0";
+const moonEmojiMap = {
+
+    "New Moon": "🌑",
+    "Waxing Crescent": "🌒",
+    "First Quarter": "🌓",
+    "Waxing Gibbous": "🌔",
+    "Full Moon": "🌕",
+    "Waning Gibbous": "🌖",
+    "Last Quarter": "🌗",
+    "Waning Crescent": "🌘"
+};
+
+async function moonPhases() {
+    const moonPhasesUrl = `https://aa.usno.navy.mil/api/rstt/oneday?date=${currentDate}&coords=${midpointOfEastCoastCoords}`;
+    try {
+        const moonPhasesResponse = await fetch(moonPhasesUrl);
+        if (!moonPhasesResponse.ok) {
+            throw new Error("Sorry. We couldn't locate the moon.");
+        }
+        const moonPhasesData = await moonPhasesResponse.json();
+        console.log(moonPhasesData);
+        return moonPhasesData;
+        const currentPhase = data.properties.data.curphase;
+        const illumination = data.properties.data.fracillum;
+        const emoji = moonEmojiMap[currentPhase] || "🌙";
+
+    } catch (error) {
+        console.error("An error has occurred: ", error);
+    }
+}
+
+moonPhases();
+
+
