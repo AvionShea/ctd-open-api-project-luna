@@ -35,8 +35,8 @@ Built for **Code the Dream - Intro to Programming (Luna Class)** as a project to
    `http://api.open-notify.org/astros.json`  
    Provides list of people currently in space
 
-3. **Sunrise-Sunset API**  
-   `https://api.sunrise-sunset.org/json`  
+3. **Astronomical Applications Department**  
+   `https://aa.usno.navy.mil/data/api`  
    Provides moon phase and astronomical data
 
 ---
