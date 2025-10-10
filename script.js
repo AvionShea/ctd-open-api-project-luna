@@ -34,12 +34,12 @@ async function peopleInSpace() {
 
 peopleInSpace();
 
-//Moon Phases - coming soon
+//Moon Phases
 // DATE AND TIME
 const timestamp = Math.floor(Date.now() / 1000);
 const currentDate = new Date().toJSON().slice(0, 10);
 const midpointOfEastCoastCoords = "36.5,-76.0";
-const moonEmojiMap = {
+/*const moonEmojiMap = {
 
     "New Moon": "🌑",
     "Waxing Crescent": "🌒",
@@ -49,7 +49,7 @@ const moonEmojiMap = {
     "Waning Gibbous": "🌖",
     "Last Quarter": "🌗",
     "Waning Crescent": "🌘"
-};
+};*/
 
 async function moonPhases() {
     const moonPhasesUrl = `https://aa.usno.navy.mil/api/rstt/oneday?date=${currentDate}&coords=${midpointOfEastCoastCoords}`;
@@ -61,9 +61,9 @@ async function moonPhases() {
         const moonPhasesData = await moonPhasesResponse.json();
         console.log(moonPhasesData);
         return moonPhasesData;
-        const currentPhase = data.properties.data.curphase;
-        const illumination = data.properties.data.fracillum;
-        const emoji = moonEmojiMap[currentPhase] || "🌙";
+        // const currentPhase = data.properties.data.curphase;
+        // const illumination = data.properties.data.fracillum;
+        // const emoji = moonEmojiMap[currentPhase] || "🌙";
 
     } catch (error) {
         console.error("An error has occurred: ", error);
