@@ -77,7 +77,7 @@ async function peopleInSpace() {
             throw new Error("Sorry. We can't locate the Astronauts.");
         }
         const peopleInSpaceData = await peopleInSpaceResponse.json();
-        console.log(peopleInSpaceData);
+        //console.log(peopleInSpaceData);
         //return peopleInSpaceData;
 
         const numOfPeopleInSpace = peopleInSpaceData.number;
