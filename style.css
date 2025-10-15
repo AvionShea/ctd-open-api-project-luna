@@ -222,7 +222,21 @@ body {
 }
 
 /* RESPONSIVE DESIGN */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
+  #hero,
+  #iss-position,
+  .coordinates {
+    font-size: 1em;
+  }
+  .header h1 {
+    font-size: 1.5em;
+  }
+
+  .astronaut-count {
+    font-size: 1.8em;
+  }
+}
+@media ((min-width: 481px) and (max-width: 768px)) {
   body {
     padding: 10px;
   }
@@ -249,10 +263,10 @@ body {
   }
 
   #iss-position {
-    font-size: 2em;
+    font-size: 1.8em;
   }
 
   .astronaut-count {
-    font-size: 3em;
+    font-size: 2.8em;
   }
 }
