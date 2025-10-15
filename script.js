@@ -1,3 +1,43 @@
+const issElement = document.getElementById("iss");
+const moonPhaseElement = document.getElementById("moon");
+const issBtn = document.getElementById("iss-crew-btn");
+const moonBtn = document.getElementById("moon-phases-btn");
+
+//Only shows ISS/Astronauts on Page load
+window.onload = function () {
+    moonPhaseElement.classList.add("hidden");
+    issBtn.classList.add("active");
+};
+
+issBtn.addEventListener("click", () => {
+    issElement.classList.remove("hidden");
+    moonPhaseElement.classList.add("hidden");
+    moonBtn.classList.remove("active");
+
+    issBtn.classList.add("active");
+
+});
+
+moonBtn.addEventListener("click", () => {
+    moonPhaseElement.classList.remove("hidden");
+    issElement.classList.add("hidden");
+    issBtn.classList.remove("active");
+
+    moonBtn.classList.add("active");
+});
+
+
+
+
+
+
+
+
+
+
+
+// API CALLS
+
 // ISS (Space Station) Location
 async function issLocation() {
     const issLocationUrl = "http://api.open-notify.org/iss-now.json";
@@ -14,7 +54,7 @@ async function issLocation() {
     }
 }
 
-issLocation();
+//issLocation();
 
 // Astronauts currently in space
 async function peopleInSpace() {
@@ -32,7 +72,7 @@ async function peopleInSpace() {
     }
 }
 
-peopleInSpace();
+//peopleInSpace();
 
 //Moon Phases
 // DATE AND TIME
@@ -70,6 +110,6 @@ async function moonPhases() {
     }
 }
 
-moonPhases();
+//moonPhases();
 
 

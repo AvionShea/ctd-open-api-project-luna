@@ -1,0 +1,258 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Orbitron", sans-serif;
+  background: #0a0e27;
+  color: #ffffff;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* UTILITY CLASS */
+.hidden {
+  display: none;
+}
+
+/* NAVIGATION BAR */
+#nav-bar {
+  background: #1b263b;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  background: transparent;
+  color: #00d9ff;
+  border: 2px solid #00d9ff;
+  padding: 12px 30px;
+  margin: 0 10px;
+  border-radius: 8px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: rgba(0, 217, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.btn.active {
+  background: #00d9ff;
+  color: #ffffff;
+}
+
+/* HEADER */
+.header {
+  background: #1b263b;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  position: relative;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2em;
+  color: #00d9ff;
+  font-weight: 900;
+}
+
+#live-indicator {
+  display: inline-block;
+  background: #ff6b35;
+  color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 0.9em;
+  font-weight: 700;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* ISS SECTION */
+#iss {
+  margin-bottom: 40px;
+}
+
+/* HERO SECTION */
+#hero {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5em;
+  color: #ffffff;
+  font-weight: 900;
+  text-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+}
+
+/* CARDS */
+.card {
+  background: rgba(27, 38, 59, 0.6);
+  border: 2px solid #00d9ff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 0 30px rgba(0, 217, 255, 0.2);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#iss-position {
+  font-size: 2.5em;
+  font-weight: 900;
+  color: #00d9ff;
+}
+
+#space-people {
+  font-size: 1.5em;
+  color: #00d9ff;
+}
+
+/* TIMESTAMP FOOTER */
+#iss-timestamp {
+  text-align: center;
+  color: #8892b0;
+  font-size: 0.9em;
+  margin-top: 20px;
+}
+
+/* MOON SECTION */
+#moon {
+  margin-bottom: 40px;
+}
+
+#moon-data {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+#moon-data div {
+  margin-top: 20px;
+}
+
+#moon-data span {
+  display: block;
+  font-size: 1.2em;
+  margin: 15px 0;
+  color: #00d9ff;
+  font-weight: 700;
+}
+
+/* ASTRONAUT LIST */
+.astronaut-list {
+  list-style: none;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.astronaut-list li {
+  padding: 12px;
+  margin: 8px 0;
+  background: rgba(0, 217, 255, 0.1);
+  border-left: 3px solid #00d9ff;
+  border-radius: 5px;
+  font-size: 0.95em;
+}
+
+/* LABELS */
+.label {
+  color: #8892b0;
+  font-size: 0.9em;
+  margin-bottom: 15px;
+}
+
+/* COORDINATES AND COUNT STYLES */
+.coordinates {
+  font-size: 2.5em;
+  font-weight: 900;
+  color: #00d9ff;
+  margin: 15px 0;
+}
+
+.astronaut-count {
+  font-size: 4em;
+  font-weight: 900;
+  color: #00d9ff;
+  margin: 20px 0;
+}
+
+/* MOON SPECIFIC STYLES */
+.moon-emoji {
+  font-size: 5em;
+  margin: 20px 0;
+}
+
+.moon-phase-name {
+  font-size: 2em;
+  color: #00d9ff;
+  font-weight: 700;
+  margin: 20px 0;
+}
+
+.moon-info {
+  font-size: 1.2em;
+  margin: 15px 0;
+  color: #ffffff;
+}
+
+.moon-info span {
+  color: #00d9ff;
+  font-weight: 700;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .header h1 {
+    font-size: 1.5em;
+  }
+
+  #live-indicator {
+    position: static;
+    transform: none;
+    display: block;
+    margin-top: 10px;
+  }
+
+  #hero {
+    font-size: 1.8em;
+  }
+
+  #iss-position {
+    font-size: 2em;
+  }
+
+  .astronaut-count {
+    font-size: 3em;
+  }
+}

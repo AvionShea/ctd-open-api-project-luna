@@ -3,10 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=TASA+Orbiter:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Who's Up There?</title>
   </head>
   <body>
+    <nav id="nav-bar">
+      <button class="btn" id="iss-crew-btn">ISS & Crew</button>
+      <button class="btn" id="moon-phases-btn">Moon Phase</button>
+    </nav>
+    <section id="iss">
+      <header id="iss-header" class="header">
+        <h1>ISS and Crew</h1>
+        <span id="live-indicator">● LIVE</span>
+      </header>
+      <div id="hero">WHERE ARE THE ASTRONAUTS?</div>
+      <div id="iss-position" class="card">ISS POSITION HERE</div>
+      <div id="space-people" class="card">People in Space</div>
+      <footer id="iss-timestamp"></footer>
+    </section>
+    <section id="moon">
+      <header id="moon-header" class="header"><h1>Moon Phases</h1></header>
+      <div id="moon-data" class="card">
+        Moon Data
+        <div>
+          <span>Moon Phase Name</span>
+          <span>Illumination %</span>
+          <span>Moon Emoji</span>
+        </div>
+      </div>
+    </section>
     <script src="script.js"></script>
   </body>
 </html>
