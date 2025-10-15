@@ -39,6 +39,10 @@ Built for **Code the Dream - Intro to Programming (Luna Class)** as a project to
    `https://aa.usno.navy.mil/data/api`  
    Provides moon phase and astronomical data
 
+   **Note:**
+   CORS Proxy needed if APIs don't support HTTPS, if deploying:
+   `https://corsproxy.io/?`
+
 ---
 
 ## 📂 Project Structure
@@ -123,7 +127,7 @@ This project is open source and available for educational purposes.
 
 - Code the Dream - Luna Class
 - Open-Notify API for providing free ISS data
-- Sunrise-Sunset.org for moon phase data
+- SAstronomical Applications Department for moon phase data
 - NASA for inspiring space enthusiasts everywhere
 
 ---
