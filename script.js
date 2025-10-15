@@ -21,7 +21,7 @@ const moonPhaseCard = document.getElementById("moon-data");
 
 // ISS (Space Station) Location
 async function issLocation() {
-    const issLocationUrl = "http://api.open-notify.org/iss-now.json";
+    const issLocationUrl = "https://api.open-notify.org/iss-now.json";
     try {
         const issLocationResponse = await fetch(issLocationUrl);
         if (!issLocationResponse.ok) {
@@ -70,7 +70,7 @@ async function issLocation() {
 
 // Astronauts currently in space
 async function peopleInSpace() {
-    const peopleInSpaceUrl = "http://api.open-notify.org/astros.json";
+    const peopleInSpaceUrl = "https://api.open-notify.org/astros.json";
     try {
         const peopleInSpaceResponse = await fetch(peopleInSpaceUrl);
         if (!peopleInSpaceResponse.ok) {
