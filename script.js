@@ -63,6 +63,9 @@ async function issLocation() {
 
     } catch (error) {
         console.error("An error has occurred: ", error);
+        issPositionCard.innerHTML = `
+    <div class="label">An error has occurred. Unable to fetch data.</div>
+`;
     }
 }
 
@@ -100,6 +103,9 @@ async function peopleInSpace() {
 `;
     } catch (error) {
         console.error("An error has occurred: ", error);
+        peopleInSpaceCard.innerHTML = `
+    <div class="label">An error has occurred. Unable to fetch data.</div>
+`;
     }
 }
 
