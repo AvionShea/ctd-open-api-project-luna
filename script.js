@@ -7,32 +7,13 @@ const moonBtn = document.getElementById("moon-phases-btn");
 window.onload = function () {
     moonPhaseElement.classList.add("hidden");
     issBtn.classList.add("active");
+    issLocation();
+    peopleInSpace();
 };
 
-issBtn.addEventListener("click", () => {
-    issElement.classList.remove("hidden");
-    moonPhaseElement.classList.add("hidden");
-    moonBtn.classList.remove("active");
-
-    issBtn.classList.add("active");
-
-});
-
-moonBtn.addEventListener("click", () => {
-    moonPhaseElement.classList.remove("hidden");
-    issElement.classList.add("hidden");
-    issBtn.classList.remove("active");
-
-    moonBtn.classList.add("active");
-});
-
-
-
-
-
-
-
-
+const issPositionCard = document.getElementById("iss-position");
+const peopleInSpaceCard = document.getElementById("space-people");
+const moonPhaseCard = document.getElementById("moon-data");
 
 
 
@@ -47,14 +28,45 @@ async function issLocation() {
             throw new Error("Sorry. We can't locate the ISS.")
         }
         const issLocationData = await issLocationResponse.json();
-        console.log(issLocationData);
-        return issLocationData;
+        //console.log(issLocationData);
+        //return issLocationData;
+        //console.log(issLocationData.iss_position.latitude);
+        //console.log(issLocationData.iss_position.longitude);
+        let issLatitude = issLocationData.iss_position.latitude;
+        let issLongitude = issLocationData.iss_position.longitude;
+
+        let formattedLat;
+        let formattedLon;
+
+        if (issLatitude > 0) {
+            formattedLat = `${issLatitude}°N`;
+            //console.log(`${issLatitude}°N`);
+        } else {
+            formattedLat = `${Math.abs(issLatitude)}°S`;
+            //console.log(`${issLatitude}°S`);
+        }
+
+        if (issLongitude > 0) {
+            formattedLon = `${issLongitude}°E`;
+            //console.log(`${issLongitude}°E`);
+        } else {
+            formattedLon = `${Math.abs(issLongitude)}°W`;
+            //console.log(`${issLongitude}°W`);
+        }
+
+        issPositionCard.innerHTML = `
+    <div class="label">🛰️ ISS POSITION</div>
+    <div class="coordinates">${formattedLat}</div>
+    <div class="coordinates">${formattedLon}</div>
+    <div class="label">Orbiting Earth</div>
+`;
+
     } catch (error) {
         console.error("An error has occurred: ", error);
     }
 }
 
-//issLocation();
+
 
 // Astronauts currently in space
 async function peopleInSpace() {
@@ -66,7 +78,26 @@ async function peopleInSpace() {
         }
         const peopleInSpaceData = await peopleInSpaceResponse.json();
         console.log(peopleInSpaceData);
-        return peopleInSpaceData;
+        //return peopleInSpaceData;
+
+        const numOfPeopleInSpace = peopleInSpaceData.number;
+        //console.log(numOfPeopleInSpace);
+
+        const namesOfPeopleInSpace = peopleInSpaceData.people;
+        //console.log(namesOfPeopleInSpace);
+
+        //Creating List of Names
+        let astronautListHtml = "";
+
+        namesOfPeopleInSpace.forEach((person) => {
+            astronautListHtml += `<li>${person.name} - 🚀${person.craft}</li>`;
+        })
+
+        peopleInSpaceCard.innerHTML = `
+    <div class="label">👨‍🚀 PEOPLE IN SPACE</div>
+    <div class="astronaut-count">${numOfPeopleInSpace} astronauts in space!</div>
+    <ul class="astronaut-list">${astronautListHtml}</ul>
+`;
     } catch (error) {
         console.error("An error has occurred: ", error);
     }
@@ -112,4 +143,26 @@ async function moonPhases() {
 
 //moonPhases();
 
+//Makes ISS Button and Section Visible/Active
+issBtn.addEventListener("click", () => {
+    issElement.classList.remove("hidden");
+    moonPhaseElement.classList.add("hidden");
+    moonBtn.classList.remove("active");
+
+    issBtn.classList.add("active");
+
+    issLocation();
+    peopleInSpace();
+
+});
+
+//Makes Moon Phases Button and Section Visible/Active
+moonBtn.addEventListener("click", () => {
+    moonPhaseElement.classList.remove("hidden");
+    issElement.classList.add("hidden");
+    issBtn.classList.remove("active");
+
+    moonBtn.classList.add("active");
+    //moonPhases();
+});
 
