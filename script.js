@@ -2,19 +2,30 @@ const issElement = document.getElementById("iss");
 const moonPhaseElement = document.getElementById("moon");
 const issBtn = document.getElementById("iss-crew-btn");
 const moonBtn = document.getElementById("moon-phases-btn");
+const issPositionCard = document.getElementById("iss-position");
+const issTimestamp = document.getElementById("iss-timestamp");
+const peopleInSpaceCard = document.getElementById("space-people");
+const moonPhaseCard = document.getElementById("moon-data");
+const moonTimestamp = document.getElementById("moon-timestamp");
+const now = new Date();
+const formattedTimestamp = now.toLocaleString('en-US', {
+    timeZone: 'America/New_York',
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+})
 
 //Only shows ISS/Astronauts on Page load
 window.onload = function () {
     moonPhaseElement.classList.add("hidden");
     issBtn.classList.add("active");
-    //issLocation();
-    //peopleInSpace();
+    issLocation();
+    peopleInSpace();
 };
-
-const issPositionCard = document.getElementById("iss-position");
-const peopleInSpaceCard = document.getElementById("space-people");
-const moonPhaseCard = document.getElementById("moon-data");
-
 
 
 // API CALLS
@@ -60,6 +71,8 @@ async function issLocation() {
     <div class="coordinates">${formattedLon}</div>
     <div class="label">Orbiting Earth</div>
 `;
+
+        issTimestamp.innerText = `Last updated: ${formattedTimestamp}`
 
     } catch (error) {
         console.error("An error has occurred: ", error);
@@ -113,7 +126,6 @@ async function peopleInSpace() {
 
 //Moon Phases
 // DATE AND TIME
-const timestamp = Math.floor(Date.now() / 1000);
 const currentDate = new Date().toJSON().slice(0, 10);
 const midpointOfEastCoastCoords = "36.5,-76.0";
 const moonEmojiMap = {
@@ -147,13 +159,14 @@ async function moonPhases() {
         <p>Current Moon Phase:<span class="moon-info"> ${currentPhase}</span></p>
         <p>Illumination Percentage:<span class="moon-info"> ${illumination}</span></p>
         `
+        moonTimestamp.innerText = `Last updated: ${formattedTimestamp}`
 
     } catch (error) {
         console.error("An error has occurred: ", error);
     }
 }
 
-moonPhases();
+//moonPhases();
 
 //Makes ISS Button and Section Visible/Active
 issBtn.addEventListener("click", () => {
@@ -163,8 +176,8 @@ issBtn.addEventListener("click", () => {
 
     issBtn.classList.add("active");
 
-    //issLocation();
-    //peopleInSpace();
+    issLocation();
+    peopleInSpace();
 
 });
 
@@ -175,6 +188,7 @@ moonBtn.addEventListener("click", () => {
     issBtn.classList.remove("active");
 
     moonBtn.classList.add("active");
-    //moonPhases();
+
+    moonPhases();
 });
 
