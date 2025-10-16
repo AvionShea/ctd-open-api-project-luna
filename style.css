@@ -151,10 +151,27 @@ body {
   margin-top: 20px;
 }
 
-#moon-data span {
+#moon-data p {
   display: block;
-  font-size: 1.2em;
+  font-size: 2em;
   margin: 15px 0;
+  color: #00d9ff;
+  font-weight: 700;
+}
+
+#moon-emoji {
+  font-size: 15em;
+}
+
+/* MOON SPECIFIC STYLES */
+
+.moon-info {
+  font-size: 1em;
+  margin: 15px 0;
+  color: #ffffff;
+}
+
+.moon-info span {
   color: #00d9ff;
   font-weight: 700;
 }
@@ -195,30 +212,6 @@ body {
   font-weight: 900;
   color: #00d9ff;
   margin: 20px 0;
-}
-
-/* MOON SPECIFIC STYLES */
-.moon-emoji {
-  font-size: 5em;
-  margin: 20px 0;
-}
-
-.moon-phase-name {
-  font-size: 2em;
-  color: #00d9ff;
-  font-weight: 700;
-  margin: 20px 0;
-}
-
-.moon-info {
-  font-size: 1.2em;
-  margin: 15px 0;
-  color: #ffffff;
-}
-
-.moon-info span {
-  color: #00d9ff;
-  font-weight: 700;
 }
 
 /* RESPONSIVE DESIGN */

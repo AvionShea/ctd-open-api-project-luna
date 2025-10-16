@@ -7,8 +7,8 @@ const moonBtn = document.getElementById("moon-phases-btn");
 window.onload = function () {
     moonPhaseElement.classList.add("hidden");
     issBtn.classList.add("active");
-    issLocation();
-    peopleInSpace();
+    //issLocation();
+    //peopleInSpace();
 };
 
 const issPositionCard = document.getElementById("iss-position");
@@ -69,7 +69,7 @@ async function issLocation() {
     }
 }
 
-
+//issLocation();
 
 // Astronauts currently in space
 async function peopleInSpace() {
@@ -116,7 +116,7 @@ async function peopleInSpace() {
 const timestamp = Math.floor(Date.now() / 1000);
 const currentDate = new Date().toJSON().slice(0, 10);
 const midpointOfEastCoastCoords = "36.5,-76.0";
-/*const moonEmojiMap = {
+const moonEmojiMap = {
 
     "New Moon": "🌑",
     "Waxing Crescent": "🌒",
@@ -126,7 +126,7 @@ const midpointOfEastCoastCoords = "36.5,-76.0";
     "Waning Gibbous": "🌖",
     "Last Quarter": "🌗",
     "Waning Crescent": "🌘"
-};*/
+};
 
 async function moonPhases() {
     const moonPhasesUrl = `https://aa.usno.navy.mil/api/rstt/oneday?date=${currentDate}&coords=${midpointOfEastCoastCoords}`;
@@ -136,18 +136,24 @@ async function moonPhases() {
             throw new Error("Sorry. We couldn't locate the moon.");
         }
         const moonPhasesData = await moonPhasesResponse.json();
-        console.log(moonPhasesData);
-        return moonPhasesData;
-        // const currentPhase = data.properties.data.curphase;
-        // const illumination = data.properties.data.fracillum;
-        // const emoji = moonEmojiMap[currentPhase] || "🌙";
+        //console.log(moonPhasesData);
+        //return moonPhasesData;
+        const currentPhase = moonPhasesData.properties.data.curphase;
+        const illumination = moonPhasesData.properties.data.fracillum;
+        const emoji = moonEmojiMap[currentPhase] || "🌙";
+
+        moonPhaseCard.innerHTML = `
+        <span id="moon-emoji">${emoji}</span>
+        <p>Current Moon Phase:<span class="moon-info"> ${currentPhase}</span></p>
+        <p>Illumination Percentage:<span class="moon-info"> ${illumination}</span></p>
+        `
 
     } catch (error) {
         console.error("An error has occurred: ", error);
     }
 }
 
-//moonPhases();
+moonPhases();
 
 //Makes ISS Button and Section Visible/Active
 issBtn.addEventListener("click", () => {
@@ -157,8 +163,8 @@ issBtn.addEventListener("click", () => {
 
     issBtn.classList.add("active");
 
-    issLocation();
-    peopleInSpace();
+    //issLocation();
+    //peopleInSpace();
 
 });
 
