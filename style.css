@@ -220,14 +220,20 @@ body {
   #hero,
   #iss-position,
   .coordinates {
-    font-size: 1em;
+    font-size: 1.5em;
   }
+
   .header h1 {
     font-size: 1.5em;
+    margin-right: 80px;
   }
 
   .astronaut-count {
     font-size: 1.8em;
+  }
+
+  .btn {
+    margin: 10px;
   }
 }
 @media ((min-width: 481px) and (max-width: 768px)) {
