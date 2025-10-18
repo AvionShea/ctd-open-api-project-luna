@@ -109,7 +109,7 @@ body {
 /* CARDS */
 .card {
   background: rgba(27, 38, 59, 0.6);
-  border: 2px solid #045766;
+  border: 2px solid #00d9ff;
   border-radius: 15px;
   padding: 30px;
   box-shadow: 0 0 30px rgba(0, 217, 255, 0.2);
